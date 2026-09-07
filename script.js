@@ -80,14 +80,15 @@ video.addEventListener("ended", () => {
 
             // 🔥 Mostrar botón de música y reproducir
             musicBtn.style.display = "flex"
+           bgMusic.volume = 1;
             bgMusic.play()
                 .then(() => {
                     musicIcon.classList.remove("fa-play")
-                    musicIcon.classList.add("fa-pause")
+                        musicIcon.classList.add("fa-pause")
                 })
-                .catch(() => {
-                    // Si el navegador bloquea el autoplay,
-                    // queda listo para que el usuario le dé play manual
+                .catch((error) => {
+                    console.log("No se pudo reanudar automáticamente:", error)
+                    musicIcon.classList.remove("fa-pause")
                     musicIcon.classList.add("fa-play")
                 })
 
