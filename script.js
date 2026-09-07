@@ -40,6 +40,22 @@ overlay.addEventListener("click", () => {
     mano.style.opacity = "0"
     text.textContent = "Cargando..."
 
+    bgMusic.volume = 0;
+
+    bgMusic.play()
+
+        .then(() => {
+            bgMusic.pause();
+            bgMusic.currentTime = 0;
+            bgMusic.volume = 1;
+        })
+
+        .catch((error) => {
+
+            console.log("Audio pendiente de autorización:", error);
+
+        })
+
     const playVideo = () => {
         preview.style.display = "none"
         text.style.display = "none"
