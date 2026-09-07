@@ -1,0 +1,1865 @@
+/* General Styles */
+body {
+    font-family: 'Benne', serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-y: hidden; /* Evita el scroll extra */
+    background-color: #f6f4ee;
+}
+
+html, body {
+    overflow-x: hidden; /* Impide el scroll horizontal */
+    margin: 0; /* Asegura que no haya márgenes extra */
+    padding: 0; /* Asegura que no haya padding extra */
+    width: 100%; /* Asegura que todo encaje en la pantalla */
+}
+
+@font-face {
+    font-family: 'ParfumerieScript';
+    src: url('Fuentes/Parfumerie-Script-W00-Regular.woff2') format('woff2'),
+         url('Fuentes/Parfumerie-Script-W00-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 50px;
+    background: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    z-index: 1000; /* Ensure header is above other elements */
+}
+
+header h1 {
+    font-size: 20px;
+    color: #ffffff; /* Cambia el color */
+    font-weight: 400;
+    margin: 0;
+    margin-left: 10px;
+    font-family: 'Benne', serif;
+    margin-top: 8px;
+}
+
+/* Navigation Menu */
+.menu-toggle {
+    cursor: pointer;
+    font-size: 24px;
+    user-select: none;
+    color: white;
+    border: none;
+    height: 50px; /* Match the height of the header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px; /* Ajusta la distancia según lo necesites */
+}
+
+#intro{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    min-height: 100dvh;
+    padding: 0;
+    background-color: #000000;
+    transition: opacity 0.8s ease; /* 🔥 nuevo */
+    opacity: 1;
+}
+
+#intro.fade-out{
+    opacity: 0; /* 🔥 nuevo */
+}
+
+#contenido{
+    display:none;
+    position: relative;
+    padding: 0;
+}
+
+.video-container{
+    position:relative;
+    width:100%;
+    max-width:431px;
+    aspect-ratio:9/16;
+}
+
+#videoPreview{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    pointer-events:none; /* NO clickeable */
+    z-index:1;
+}
+
+/* VIDEO */
+#introVideo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* OVERLAY */
+#clickOverlay{
+    position:absolute;
+    inset:0;
+    cursor:pointer;
+    z-index: 10;
+}
+
+.mano{
+    position: absolute;
+    width: 16%;
+    max-width:60px;
+    margin-left: -35%;
+    margin-top: 100%;
+    animation: tapDiagonal 1.4s infinite ease-in-out;
+}
+
+@keyframes tapDiagonal{
+
+    0%{
+        transform: translate(0,0);
+    }
+
+    50%{
+        transform: translate(10px,-10px);
+    }
+
+    100%{
+        transform: translate(0,0);
+    }
+
+}
+
+#clickText {
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translateX(-50%);
+    font-family: 'Great Vibes', cursive;
+    font-style: normal;
+    font-size: clamp(30px, 1.17px + 9.01vw, 40px);
+    color: #656c5a;
+    white-space: nowrap;
+}
+
+/* Hidden menu by default */
+#nav-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 250px;
+    height: 100vh;
+    background: white;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    z-index: 999;
+    padding-top: 50px;
+    overflow-y: auto;   /* 👈 agrega scroll vertical */
+}
+
+#nav-menu.active {
+    left: 0;
+}
+
+#nav-menu ul {
+    list-style: none;
+    padding: 20px;
+    padding-bottom: 50px !important; /* margen interno extra */
+}
+
+#nav-menu li {
+    margin-bottom: 0px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+#nav-menu i {
+    position: relative;
+    top: -3px; /* prueba 1px, 2px o 3px */
+}
+
+#nav-menu.active li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#nav-menu li:nth-child(1) { transition-delay: 0.1s; }
+#nav-menu li:nth-child(2) { transition-delay: 0.2s; }
+#nav-menu li:nth-child(3) { transition-delay: 0.3s; }
+#nav-menu li:nth-child(4) { transition-delay: 0.4s; }
+#nav-menu li:nth-child(5) { transition-delay: 0.5s; }
+#nav-menu li:nth-child(6) { transition-delay: 0.6s; }
+#nav-menu li:nth-child(7) { transition-delay: 0.7s; }
+
+#nav-menu li a {
+    display: flex;                /* Activa flexbox */
+    align-items: center;          /* Centra verticalmente icono y texto */
+    gap: 10px;                    /* Espacio entre icono y texto */
+    text-decoration: none;
+    color: var(--dark-color);
+    padding: 12px 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    justify-content: flex-start;  /* Asegura que todo quede alineado a la izquierda */
+    font-family: 'Benne', serif;
+    font-size: 20px;
+}
+
+#nav-menu li a i {
+    width: 24px;                  /* Columna fija para los íconos */
+    text-align: center;
+    flex-shrink: 0;               /* Evita que se encoja el icono */
+}
+
+#nav-menu li a:hover {
+    background-color: #dddddd80;
+    color: #474948;
+    border-left: 4px solid #37373780;
+    padding-left: 20px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 998;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Música
+--------------------------------------------------------------*/
+/* Botón de música flotante */
+#musicBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: clamp(35px, -8.24px + 13.51vw, 50px);
+    height: clamp(35px, -8.24px + 13.51vw, 50px);
+    border-radius: 50%;
+    border: none;
+    background: #808973;
+    color: #fff;
+    font-size: clamp(14px, -3.30px + 5.41vw, 20px);
+    cursor: pointer;
+    z-index: 996;
+    display: none; /* 🔥 se muestra por JS cuando arranca el contenido */
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#musicBtn:hover {
+    transform: scale(1.08);
+    background: #808973;
+}
+
+#musicBtn:focus,
+#musicBtn:active {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Contenedor general de la portada */
+#cover {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra la portada horizontalmente */
+    position: relative; /* Para posicionar las decorativas */
+    margin: 0 auto;
+    padding: 50px 0px 0px 0px;
+}
+
+/* Contenedor de la imagen principal */
+.cover-container {
+    width: 100%;
+    max-width: 431px; /* ancho máximo */
+    aspect-ratio: 982 / 1602; /* mantiene proporción 9:16 */
+    overflow: hidden;
+    position: relative; /* Para que las decorativas dentro de este contenedor se posicionen relativo a la portada */
+}
+
+/* Imagen de portada */
+.cover-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ajusta la imagen para llenar el contenedor manteniendo proporción */
+}
+
+.cover-text {
+    position: absolute;
+    top: 34%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #808973;
+    font-family: 'ParfumerieScript', cursive;
+    font-size: clamp(35px, -1.89px + 16.22vw, 50px);
+    font-weight: 400;
+    line-height: 1;
+    z-index: 3;
+}
+
+.cover-text1 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #000000;
+    font-family: "EB Garamond", serif;
+    font-size: clamp(5px, -0.53px + 3.60vw, 10px);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.3;
+    z-index: 3;
+}
+
+/* Imágenes decorativas */
+.decorative-img {
+    position: absolute;
+    top: 22%;
+    left: 0%;
+    right: 0;
+    margin: 0 auto;
+    width: 17% !important;
+    max-width: 75px !important;
+    height: auto !important;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.decorative-img1 {
+    position: absolute;
+    top: 55%;
+    left: 0%;
+    right: 0;
+    margin: 0 auto;
+    width: 65% !important;
+    max-width: 280px !important;
+    height: auto !important;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.decorative-img2 {
+    position: absolute;
+    top: 22%;
+    left: 0%;
+    right: 0;
+    margin: 0 auto;
+    width: 17% !important;
+    max-width: 75px !important;
+    height: auto !important;
+    pointer-events: none;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.decorative-img3 {
+    margin: 0 auto;
+    width: 25% !important;
+    max-width: 110px !important;
+    height: auto !important;
+    pointer-events: none;
+}
+
+/* Botón scroll */
+.scroll-down {
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translateX(-50%);
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    text-decoration: none;
+    font-size: clamp(13px, -1.41px + 4.50vw, 18px);
+    z-index: 5;
+    animation: bounce 2s infinite;
+}
+
+/* Animación suave */
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Efecto hover */
+.scroll-down:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#music {
+    position: relative;
+    height: 130px;
+    margin-top: 10px;
+    padding: 0px;
+}
+
+#music p {
+    font-family: 'ParfumerieScript', cursive;
+    font-weight: 400;
+    color: #000000;
+    line-height: 1.2;
+    font-size: clamp(25px, 7.70px + 5.41vw, 31px);
+    margin-top: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+/* Botón corazón */
+.heart-btn {
+    display: block;
+    margin: 0 auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: clamp(45px, calc(15.91px + 9.0909vw), 50px);
+    color: #dac5ab;
+    position: relative;
+    outline: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.heart-btn:hover,
+.heart-btn:focus,
+.heart-btn:active{
+    background: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Icono play/pause */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 0.45em;
+}
+
+/* Contenedor general de la portada */
+#countdown {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra la portada horizontalmente */
+    position: relative; /* Para posicionar las decorativas */
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Contenedor de la imagen principal */
+.countdown-container {
+    width: 100%;
+    max-width: 431px; /* ancho máximo */
+    aspect-ratio: 1070 / 1470; /* mantiene proporción 9:16 */
+    overflow: hidden;
+    position: relative; /* Para que las decorativas dentro de este contenedor se posicionen relativo a la portada */
+}
+
+/* Imagen de portada */
+.countdown-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ajusta la imagen para llenar el contenedor manteniendo proporción */
+    pointer-events: none;
+}
+
+/* Imágenes decorativas */
+.countdown-bloque {
+    position: absolute;
+    top: 28%;
+    left: 0%;
+    right: 0;
+    margin: 0 auto;
+    width: 60% !important;
+    max-width: 260px !important;
+    height: auto !important;
+    z-index: 2;
+}
+
+#countdown h2 {
+    color: #808973;
+    font-family: 'ParfumerieScript', cursive;
+    font-size: clamp(45px, -6.89px + 16.22vw, 63px);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 0.2em;
+    margin-top: 1em;
+}
+
+#countdown p {
+    color: #000000;
+    font-family: "EB Garamond", serif;
+    font-size: clamp(11px, -0.53px + 3.60vw, 15px);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0;
+}
+
+#timer {
+    font-family: "Tai Heritage Pro", serif;
+    display: flex;
+    justify-content: center; /* Centra las unidades de tiempo */
+    align-items: center; /* Centra las unidades de tiempo verticalmente */
+    gap: 0.1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.time-unit {
+    width: clamp(30px, 16vw, 80px);
+    line-height: 1.3em;
+    text-align: center;
+}
+
+.number {
+    font-weight: normal;
+    font-style: normal;
+    font-size: clamp(15px, -2.30px + 5.41vw, 21px);
+}
+
+.label {
+    font-family: "EB Garamond", serif;
+    font-size: clamp(11px, -0.53px + 3.60vw, 15px);
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    display: block; /* Hace que el texto de la unidad esté en una nueva línea debajo del número */
+    color: #000000; /* Color gris para las palabras */
+    margin-top: 0em; /* Espacio entre el número y la palabra */
+    text-transform: uppercase;
+}
+
+.heart {
+    width: clamp(7px, -1.65px + 2.70vw, 10px);
+    aspect-ratio: 1 / 1;
+    display: inline-block;
+    flex-shrink: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 29.6'%3E%3Cpath fill='%23808973' d='M23.6,0c-3.4,0-6.3,2.1-7.6,5.1C14.7,2.1,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4 c0,9,16,21.2,16,21.2s16-12.2,16-21.2C32,3.8,28.2,0,23.6,0z'/%3E%3C/svg%3E");
+}
+
+/* Definir la animación del corazón */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1); /* Tamaño original */
+    }
+    25% {
+        transform: scale(1.2); /* Aumenta el tamaño un 20% */
+    }
+    50% {
+        transform: scale(1); /* Vuelve al tamaño original */
+    }
+    75% {
+        transform: scale(1.2); /* Aumenta el tamaño un 20% nuevamente */
+    }
+    100% {
+        transform: scale(1); /* Vuelve al tamaño original */
+    }
+}
+
+/* Buttons */
+.btn {
+    position: relative;
+    display: inline-block;
+    border-bottom: 10px solid #525a46;
+    padding-bottom: 3px;
+    color: #525a46;
+    font-family: "EB Garamond", serif;
+    font-size: clamp(12px, 0.47px + 3.60vw, 16px);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.3;
+    cursor: pointer;
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    z-index: 10;
+    transition: transform 0.25s ease;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0em;
+    width: 100%;
+    height: 0.05em;
+    background: #525a46;
+}
+
+.btn:focus,
+.btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    color: #292a27;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid #cacaca;
+    margin: 10px 0;
+}
+
+#nav-menu ul {
+    list-style: none; /* Elimina las viñetas */
+    padding: 0;
+    margin: 0;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background: #f570c3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background: #ffb5e3;
+}
+
+.decoracion-ropa {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: 65%;
+    max-width: 254px;
+}
+
+.decoracion-regalo {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: 55%;
+    max-width: 215px;
+}
+
+.decoracion-kids {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: 60%;
+    max-width: 215px;
+}
+
+.decoracion-anillos {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: 45%;
+    max-width: 180px;
+    margin-top: 2em;
+}
+
+#details {
+    padding-top: 80px;
+    padding-bottom: 130px;
+}
+
+.details-card{
+    position: relative;
+    width: 90%;
+    max-width: 410px;
+    margin: 0 auto;
+    padding: 0 5px;
+    border: 1.5px solid #dddcd7;
+    border-radius: 10px;
+    background: #f0efe9;
+    backdrop-filter: blur(4px);
+    box-sizing: border-box;
+}
+
+.details-decoration{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -65%);
+    width: 50%;
+    max-width: 194px;
+    height: auto;
+    pointer-events: none;
+}
+
+.details-decoration.efecto-img {
+    opacity: 0;
+    transform: translate(-50%, -65%) translateY(60px);
+}
+
+.details-decoration.efecto-img.visible {
+    opacity: 1;
+    transform: translate(-50%, -65%) translateY(0);
+}
+
+.dia-despues-decoration {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 48%;
+    max-width: 185px;
+    height: auto;
+    pointer-events: none;
+}
+
+.dia-despues-decoration.efecto-img {
+    opacity: 0;
+    transform: translate(-50%, -60%) translateY(60px);
+}
+
+.dia-despues-decoration.efecto-img.visible {
+    opacity: 1;
+    transform: translate(-50%, -60%) translateY(0);
+}
+
+.clothes-decoration{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(80%, 15%);
+    width: 35%;
+    max-width: 135px;
+    height: auto;
+    pointer-events: none;
+}
+
+.clothes-decoration.efecto-img {
+    opacity: 0;
+    transform: translate(80%, 15%) translateY(60px);
+}
+
+.clothes-decoration.efecto-img.visible {
+    opacity: 1;
+    transform: translate(80%, 15%) translateY(0);
+}
+
+.clothes-decoration1 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-85%, -17%);
+    width: 80%;
+    max-width: 309px;
+    height: auto;
+    pointer-events: none;
+}
+
+.clothes-decoration1.efecto-img {
+    opacity: 0;
+    transform: translate(-85%, -17%) translateX(-60px);
+}
+
+.clothes-decoration1.efecto-img.visible {
+    opacity: 1;
+    transform: translate(-85%, -17%) translateX(0);
+}
+
+.gift-decoration {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-128%, -25%);
+    width: 55%;
+    max-width: 213px;
+    height: auto;
+    pointer-events: none;
+}
+
+.gift-decoration.efecto-img {
+    opacity: 0;
+    transform: translate(-128%, -25%) translateX(-60px);
+}
+
+.gift-decoration.efecto-img.visible {
+    opacity: 1;
+    transform: translate(-128%, -25%) translateX(0);
+}
+
+.gift-decoration1 {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(28%, 23%) scale(-1, -1);
+    width: 55%;
+    max-width: 213px;
+    height: auto;
+    pointer-events: none;
+}
+
+.gift-decoration1.efecto-img {
+    opacity: 0;
+    transform: translate(28%, 23%) scale(-1, -1) translateX(-60px);
+}
+
+.gift-decoration1.efecto-img.visible {
+    opacity: 1;
+    transform: translate(28%, 23%) scale(-1, -1) translateX(0);
+}
+
+.ultimo-decoration {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(35%, 15%);
+    width: 50%;
+    max-width: 215px;
+    height: auto;
+    pointer-events: none;
+}
+
+.ultimo-decoration.efecto-img {
+    opacity: 0;
+    transform: translate(35%, 15%) translateX(60px);
+}
+
+.ultimo-decoration.efecto-img.visible {
+    opacity: 1;
+    transform: translate(35%, 15%) translateX(0);
+}
+
+.ultimo-decoration1 {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(-46%, 15%);
+    width: 50%;
+    max-width: 215px;
+    height: auto;
+    pointer-events: none;
+}
+
+.ultimo-decoration1.efecto-img {
+    opacity: 0;
+    transform: translate(-46%, 15%) translateX(-60px);
+}
+
+.ultimo-decoration1.efecto-img.visible {
+    opacity: 1;
+    transform: translate(-46%, 15%) translateX(0);
+}
+
+#itinerary {
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px;
+    padding: 60px 0 60px 0;
+}
+  
+  .cortina-wrap {
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    width: 50%;
+    max-width: 215px;
+    z-index: 5;
+    /* JS actualizará esta propiedad en cada scroll */
+    transform: translateX(var(--open-x, 35%));
+  }
+  
+  .cortina-wrap-derecha   { left: 50%;  --open-x: 15%; }
+  .cortina-wrap-izquierda { right: 50%; --open-x: -15%; }
+  .cortina-wrap-centro   { left: 50%; width: 85%; max-width: 366px; --open-x: -50%; }
+  
+  .cortina-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform-origin: center top;
+  }
+  
+  .cortina-decoration  { animation: balanceoDerecha 5s ease-in-out infinite; }
+  .cortina-decoration2 { animation: balanceoIzquierda 5s ease-in-out infinite; transform: scaleX(-1); }
+  .cortina-decoration1 { animation: balanceoCentro 6s ease-in-out infinite; }
+  
+  @keyframes balanceoDerecha {
+    0%,100% { transform: rotate(-2deg); }
+    50%     { transform: rotate(2deg); }
+  }
+  @keyframes balanceoIzquierda {
+    0%,100% { transform: scaleX(-1) rotate(-2deg); }
+    50%     { transform: scaleX(-1) rotate(2deg); }
+  }
+  @keyframes balanceoCentro {
+    0%,100% { transform: rotate(-1deg); }
+    50%     { transform: rotate(1deg); }
+  }
+
+#details h1 {
+    color: #808973;
+    font-family: ParfumerieScript, cursive;
+    font-size: clamp(50px, -1.89px + 16.22vw, 68px);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 2.5em;
+    margin-top: 0em;
+}
+
+#details h2 {
+    font-family: ParfumerieScript, cursive;
+    font-weight: 400;
+    color: #57604c;
+    line-height: 1;
+    font-size: clamp(20px, -6.89px + 16.22vw, 40px);
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+#dia-despues h2 {
+    font-family: ParfumerieScript, cursive;
+    font-weight: 400;
+    color: #57604c;
+    line-height: 1;
+    font-size: clamp(20px, -17.66px + 18.02vw, 40px);
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+#details h3 {
+    font-family: ParfumerieScript, cursive;
+    font-weight: 400;
+    color: #57604c;
+    line-height: 1;
+    font-size: clamp(40px, -11.89px + 16.22vw, 58px);
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+#dia-despues h3 {
+    font-family: ParfumerieScript, cursive;
+    font-weight: 400;
+    color: #57604c;
+    line-height: 1;
+    font-size: clamp(40px, -11.89px + 16.22vw, 58px);
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+#details p {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(13.5px, 3.41px + 3.15vw, 17px);
+    color: #000000;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0;
+}
+
+#dia-despues p {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(13.5px, 3.41px + 3.15vw, 17px);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0px;
+}
+
+#details h4 {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(13.5px, 3.41px + 3.15vw, 17px);
+    color: #000000;
+    letter-spacing: 0.07em;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0;
+}
+
+#dia-despues h4 {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(13.5px, 3.41px + 3.15vw, 17px);
+    color: #000000;
+    letter-spacing: 0.07em;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.d1 {
+   margin-top: 7em !important;
+   margin-bottom: 1.5em !important;
+}
+
+.d2 {
+    margin-top: 1.5em!important;
+    margin-bottom: 1.5em !important;
+}
+
+.d3 {
+    color: #57604c !important;
+}
+
+.d4 {
+    margin-top: 6em !important;
+    margin-bottom: 1.5em !important;
+ }
+
+ .d5 {
+    margin-top: 1.5em !important;
+    margin-bottom: 0em !important;
+ }
+
+ .d6 {
+    margin-top: 1em !important;
+    margin-bottom: 0em !important;
+ }
+
+ .d7 {
+    margin-bottom: 5em !important;
+ }
+
+.m1 {
+    margin-top: -20px !important; /* O el valor que prefieras */
+}
+
+.b1 {
+    margin-top: 0px !important; /* O el valor que prefieras */
+}
+
+.b2 {
+    margin-top: 0.5em !important; /* O el valor que prefieras */
+    margin-bottom: 2.5em !important; /* O el valor que prefieras */
+}
+
+#clothes {
+    padding-bottom: 70px;
+}
+
+#clothes h1 {
+    color: #808973;
+    font-family: ParfumerieScript, cursive;
+    font-size: clamp(50px, -1.89px + 16.22vw, 68px);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 0.8em;
+    margin-top: 0em;
+}
+
+#clothes h2 {
+    font-family: ParfumerieScript, cursive;
+    font-weight: 400;
+    color: #57604c;
+    line-height: 1;
+    font-size: clamp(40px, -17.66px + 18.02vw, 60px);
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+#clothes p {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(15.5px, 5.41px + 3.15vw, 19px);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-top: 0.5em;
+    margin-bottom: 0.7em;
+}
+
+#clothes h3 {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(15.5px, 5.41px + 3.15vw, 19px);
+    color: #000000;
+    letter-spacing: 0.07em;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.destacado {
+    font-family: 'ParfumerieScript', cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #bea890;
+    line-height: 1.5;
+    font-size: clamp(30px, 9.82px + 6.31vw, 37px);
+}
+
+.destacado1 {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #bea890;
+}
+
+/* 🔹 1. Fondo del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    inset: 0; /* Alternativa moderna a left: 0; top: 0; width: 100%; height: 100%; */
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    
+    /* Centrado total */
+    justify-content: center;
+    align-items: center;
+    
+    padding: 10px; /* Para evitar que toque los bordes en móviles */
+    box-sizing: border-box; /* Asegura que padding no afecte dimensiones */
+    z-index:5;
+}
+
+/* 🔹 2. Contenido del modal */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative; /* Para que los elementos absolutos (como la "X") se posicionen dentro del modal */
+    
+    /* Asegura que el modal tenga un ancho adaptable */
+    width: 90%;  /* Ocupará el 90% del ancho en móviles */
+    max-width: 400px;  /* No se expandirá más allá de 400px en pantallas grandes */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    
+    /* Centrar correctamente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 🔹 3. Ajustar los campos dentro del modal */
+.modal-content input,
+.modal-content textarea {
+    width: calc(100% - 20px); /* Se ajusta al ancho del modal */
+    max-width: 350px;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* 🔹 4. Corrección de la "X" (Botón de cierre) */
+.close {
+    position: absolute; /* Para que se fije dentro del modal */
+    top: 10px; /* Margen superior */
+    right: 15px; /* Margen derecho */
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #f570c3; /* Cambia de color al pasar el mouse */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#gift {
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+}
+
+#gift h1 {
+    font-family: ParfumerieScript, cursive;
+    font-weight: 400;
+    color: #57604c;
+    line-height: 1;
+    font-size: clamp(45px, -6.89px + 16.22vw, 63px);
+    margin-top: 1.5em;
+    margin-bottom: 0em;
+}
+
+#gift p {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(13.5px, 3.41px + 3.15vw, 17px);
+    color: #57604c;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-top: 1em;
+    margin-bottom: 0.7em;
+}
+
+#gift h2 {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(15.5px, 5.41px + 3.15vw, 19px);
+    color: #000000;
+    letter-spacing: 0.07em;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-top: 0;
+    margin-bottom: 5em;
+}
+
+.attendance-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    z-index: 11 !important;
+}
+
+.attendance-modal-content {
+    position: fixed;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+
+    width: 75%;
+    max-width: 431px;
+
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+    left: 50%;
+    top: calc(50% + 25px); /* compensa el header */
+    transform: translate(-50%, -50%);
+
+    /* Altura visible menos header y márgenes */
+    max-height: calc(100dvh - 130px);
+
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.attendance-modal-content::-webkit-scrollbar {
+    display: none;
+}
+
+.attendance-modal-content input,
+.attendance-modal-content textarea,
+.attendance-modal-content select {
+    width: calc(100% - 20px);
+    max-width: 350px;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botón de cierre específico para este modal */
+.attendance-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    color: #57604c;
+}
+
+.attendance-close:hover {
+    color: #465237;
+}
+
+.attendance-modal-content p {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(15.5px, 5.41px + 3.15vw, 19px);
+    width: calc(100% - 10px);
+    max-width: 390px;
+    color: #000000;
+    line-height: 1.3;
+    text-align: justify;
+    margin: 0.5em auto;
+}
+
+#attendance-section{
+    position: relative;
+    overflow: hidden;
+}
+
+#attendance-section h1 {
+    font-family: ParfumerieScript, cursive;
+    font-weight: 400;
+    color: rgb(87, 96, 76);
+    line-height: 1;
+    font-size: clamp(45px, -6.89px + 16.22vw, 63px);
+    margin-top: 1.5em;
+    margin-bottom: 0em;
+}
+
+#attendance-section h3 {
+    font-family: ParfumerieScript, cursive;
+    font-weight: 400;
+    color: #57604c;
+    line-height: 0.8;
+    font-size: clamp(40px, -17.66px + 18.02vw, 60px);
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+#attendance-section h4 {
+    font-family: 'ParfumerieScript', cursive;
+    font-weight: 400;
+    color: #bea890;
+    line-height: 1.5;
+    font-size: clamp(35px, 6.17px + 9.01vw, 45px);
+    margin-top: 1em;
+    margin-bottom: 0.7em;
+}
+
+.form-label {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(15.5px, 5.41px + 3.15vw, 19px);
+    font-weight: 400;
+    color: #57604c !important;
+    display: block;
+    line-height: 1.1;
+    width: calc(100% - 10px);
+    max-width: 390px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input, select, textarea {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(15.5px, 5.41px + 3.15vw, 19px);
+    color: #333; /* Color del texto */
+}
+
+#loadingMessage1 {
+    text-align: center !important; /* centra el texto si hay varios elementos dentro */
+}
+
+.Paletac {
+    width: 100%;
+    max-width: 250px;
+    margin-top: 10px;
+}
+
+/***************************EFECTOS PARA TÍTULOS*********************************/
+@keyframes deslizarHaciaAbajo {
+    /* El estado final de la animación */
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 👇 tu animación base sigue igual */
+.linea-texto span {
+    display: inline-block;
+    opacity: 0; /* Inicia invisible */
+    transform: translateY(-110%); /* Inicia arriba, fuera de la vista */
+
+    /* La animación no se ejecuta por defecto */
+    animation-name: none; 
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); /* Suavizado */
+    animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
+    animation-delay: var(--delay); /* Usamos la variable de JS para el retraso */
+
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    will-change: transform;
+
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+
+    margin-left: -0.5em; 
+    margin-right: -0.5em; 
+
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+
+    margin-top: -0.5em; 
+    margin-bottom: -0.5em; 
+}
+
+/* Efecto deslizar hacia abajo */
+@keyframes deslizarHaciaAbajo {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .efecto-deslizar.visible .linea-texto span {
+    animation-name: deslizarHaciaAbajo;
+  }
+  
+  /* Efecto fade in */
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  .efecto-fade.visible .linea-texto span {
+    transform: none;
+    animation-name: fadeIn;
+  }
+  
+  /* Efecto zoom */
+  @keyframes zoomIn {
+    0%   { opacity: 0; transform: scale(0.3); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  .efecto-zoom.visible .linea-texto span {
+    animation-name: zoomIn;
+  }
+  
+  /* Efecto rebote */
+  @keyframes bounceIn {
+    0%   { opacity: 0; transform: translateY(-200%); }
+    60%  { opacity: 1; transform: translateY(20%); }
+    80%  { transform: translateY(-10%); }
+    100% { transform: translateY(0); }
+  }
+  .efecto-bounce.visible .linea-texto span {
+    animation-name: bounceIn;
+  }
+
+/*********************************************************************************/
+@keyframes fadeInSoft {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  .efecto-fadeSoft.visible .linea-texto span {
+    animation-name: fadeInSoft;
+    transform: none;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  .efecto-slideUp.visible .linea-texto span {
+    animation-name: slideUp;
+  }
+
+  @keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  
+  .efecto-slideLeft.visible .linea-texto span {
+    animation-name: slideLeft;
+  }
+
+  @keyframes softZoom {
+    from { opacity: 0; transform: scale(0.98); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  
+  .efecto-softZoom.visible .linea-texto span {
+    animation-name: softZoom;
+  }  
+
+  @keyframes dissolve {
+    from { opacity: 0; filter: blur(4px); }
+    to   { opacity: 1; filter: blur(0); }
+  }
+  
+  .efecto-dissolve.visible .linea-texto span {
+    animation-name: dissolve;
+    transform: none;
+  }
+
+/***************************EFECTOS PARA PÁRRAFOS*********************************/ 
+/* Estado inicial */
+.efecto-parrafo{
+    opacity:0;
+    transition: opacity 1s ease, translate 1s ease;
+  
+    --dx:0px;
+    --dy:30px;
+  
+    translate: var(--dx) var(--dy);
+  }
+  
+  /* Cuando aparece */
+  .efecto-parrafo.visible{
+    opacity:1;
+  
+    --dx:0px;
+    --dy:0px;
+  }
+  
+  /* Variantes */
+  .slide-left  { --dx:-50px; --dy:0; }
+  .slide-right { --dx:50px;  --dy:0; }
+  
+  .slide-up    { --dy:50px; }
+  .slide-down  { --dy:-50px; }
+
+/*********************************************************************************/
+  
+.reveal {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.8s ease-out;
+ }
+      
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-animado {
+    opacity: 0;
+    transform: scale(0.8);
+}
+  
+.btn-animado.active1 {
+    opacity: 1;
+    animation: zoomInOut 0.8s ease forwards;
+}
+  
+@keyframes zoomInOut {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+
+.video-section {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* centra cuando llega a 430px */
+    padding: 0px 0px;
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+  
+.video-responsive {
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+  display: block;
+}
+
+/*************************** EFECTOS PARA IMÁGENES ***************************/
+
+.efecto-img {
+    opacity: 0;
+    transition: all 1s ease;
+  }
+  
+  /* Direcciones */
+  .img-left   { transform: translateX(-60px); }
+  .img-right  { transform: translateX(60px); }
+  .img-up     { transform: translateY(60px); }
+  .img-down   { transform: translateY(-60px); }
+  
+  /* Cuando entra en pantalla */
+  .efecto-img.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }  
+
+/* Itinerario */
+#itinerary {
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px;
+    padding: 60px 0 60px 0; 
+}
+
+.timeline {
+    position: relative;
+    max-width: 350px;
+    margin: auto;
+    padding: 50px 0px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;   /* 👈 este es tu nuevo control de espaciado entre ítems */
+    --item-width: clamp(100px, 50%, 280px);
+    --circle-size: clamp(8px, 2.23px + 1.80vw, 10px);
+    --gap: 24px;
+  }
+
+  /* Variables para controlar el layout del bloque círculo+texto */
+  :root {
+    --item-width: clamp(100px, 50%, 280px);
+    --circle-size: clamp(8px, 2.23px + 1.80vw, 10px);
+    --gap: 24px;
+  }
+  
+  /* Línea gris base */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: calc(50% - (var(--item-width) / 2) + (var(--circle-size) / 2));
+    transform: translateX(-50%);
+    width: 3px;
+    background: #eee6df;
+    top: 68px;
+    bottom: clamp(75px, 26.00px + 15.32vw, 92px);
+    border-radius: 3px;
+    z-index: 0;
+  }
+  
+  .progress-line {
+    position: absolute;
+    left: calc(50% - (var(--item-width) / 2) + (var(--circle-size) / 2));
+    transform: translateX(-50%);
+    width: 3px;
+    background: #808973;
+    top: 68px;
+    height: 0;
+    border-radius: 3px;
+    transition: height 0.3s ease-out;
+    z-index: 1;
+  }
+  
+  /* Ítems */
+  .timeline-item {
+    display: grid;
+    grid-template-columns: var(--circle-size) 1fr;
+    column-gap: var(--gap);
+    align-items: start;
+    width: var(--item-width);
+    margin: 0 auto;      /* centra el bloque como conjunto */
+    position: relative;
+    text-align: left;
+  }
+
+  /* Círculo — ahora es celda del grid, ya no absolute */
+  .circle {
+    position: relative;
+    top: 18px;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    box-sizing: border-box;
+    background: #fff;
+    border: clamp(1.5px, 0.4px + 0.4vw, 2px) solid #eee6df;
+    border-radius: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #eee6df;
+    transition: border-color 0.25s ease, color 0.25s ease;
+  }
+  
+  .circle i {
+    font-size: clamp(6px, 0.23px + 1.80vw, 8px);
+    transition: color 0.3s ease;
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes heartbeat {
+    0%   { transform: scale(1); }
+    25%  { transform: scale(1.2); }
+    50%  { transform: scale(1); }
+    75%  { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Estado relleno */
+  .filled {
+    border-color: #808973;
+    color: #808973;
+    transition: border-color 0.4s ease, color 0.4s ease;
+  }
+  
+  /* Texto */
+  .timeline-item .text {
+    margin-top: -20px;
+  }
+
+#itinerary h1 {
+    color: #808973;
+    font-family: ParfumerieScript, cursive;
+    font-size: clamp(40px, -1.89px + 16.22vw, 50px);
+    font-weight: 400;
+    line-height: 0.8;
+    margin-bottom: 0em;
+    margin-top: 1em;
+}
+
+#itinerary h2 {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(15.5px, 5.41px + 3.15vw, 19px);
+    color: #57604c;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-top: 0.5em;
+    margin-bottom: 0.7em;
+}
+
+#itinerary p {
+    font-family: 'ParfumerieScript', cursive;
+    font-weight: 400;
+    color: #000000;
+    line-height: 0.6;
+    font-size: clamp(10px, -16.89px + 16.22vw, 20px);
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    white-space: nowrap;
+}
+
+#itinerary h3 {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(15.5px, 5.41px + 3.15vw, 19px);
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-top: 0em !important;
+    white-space: nowrap;
+}
+
+#guestInfo {
+    display: flex;
+    flex-direction: column;
+    white-space: pre-line;
+    margin: 2em auto;
+    font-style: normal;
+    line-height: 2.5;
+    width: 90%;
+    max-width: 380px;
+    margin-bottom: 1em;
+}
+  
+.numero-pases {
+    font-family: "Tai Heritage Pro", serif;
+    font-style: normal;
+    font-size: clamp(17px, 2.59px + 4.50vw, 22px);
+    line-height: 1;
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background-color: #808973;
+    color: white;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+.texto-invitacion{
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(15.5px, 5.41px + 3.15vw, 19px);
+    color: #000000;
+    letter-spacing: 0.07em;
+    font-weight: 500;
+}
+
+.nombre-familia {
+    font-family: "EB Garamond", serif;
+    font-style: normal;
+    font-size: clamp(15.5px, 5.41px + 3.15vw, 19px);
+    color: #57604c;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+}
+
+.centered-gif {
+    display: block;
+    margin: 0 auto;
+    width: 90% !important;
+    height: auto;
+    max-width: 388px;
+}
+
+#ultimo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 0;
+}
+
+#ultimo h1 {
+    color: #808973;
+    font-family: 'ParfumerieScript', cursive;
+    font-size: clamp(50px, -1.89px + 16.22vw, 68px);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 0.3em;
+}
+
+#ultimo p {
+    color: #808973;
+    font-family: "EB Garamond", serif;
+    font-size: clamp(15px, 3.47px + 3.60vw, 19px);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-top: 0px;
+    margin-bottom: 11em;
+}

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="100%" height="100%">
+  <style>
+    .text-main {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      fill: #78846c;
+    }
+    .large-num {
+      font-size: 140px;
+      font-weight: normal;
+      text-anchor: middle;
+    }
+    .side-text {
+      font-size: 28px;
+      letter-spacing: 4px;
+      text-anchor: middle;
+    }
+    .sub-text {
+      font-size: 24px;
+      letter-spacing: 6px;
+      text-anchor: middle;
+    }
+    .line {
+      stroke: #78846c;
+      stroke-width: 2;
+    }
+  </style>
+
+  <!-- Left Section (Octubre) -->
+  <line x1="40" y1="75" x2="240" y2="75" class="line" />
+  <text x="140" y="115" class="text-main side-text">OCTUBRE</text>
+  <line x1="40" y1="135" x2="240" y2="135" class="line" />
+
+  <!-- Center Number (10) -->
+  <text x="400" y="130" class="text-main large-num">10</text>
+
+  <!-- Right Section (2026) -->
+  <line x1="560" y1="75" x2="760" y2="75" class="line" />
+  <text x="660" y="115" class="text-main side-text">2026</text>
+  <line x1="560" y1="135" x2="760" y2="135" class="line" />
+
+  <!-- Bottom Text (Sábado) -->
+  <text x="400" y="195" class="text-main sub-text">SÁBADO</text>
+</svg>

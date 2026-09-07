@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda | ANDRES & DANIELA</title>
+
+    <!-- Metaetiquetas para SEO y rendimiento -->
+    <meta name="google" content="notranslate">
+    <meta name="description" content="Queremos invitarte a celebrar junto a nosotros este momento único y especial: nuestra boda.">
+    <meta name="keywords" content="boda, matrimonio, enlace matrimonial, celebración, amor">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Invitación de Boda | DANIELA & ANDRES">
+    <meta property="og:description" content="Queremos invitarte a celebrar junto a nosotros este momento único y especial: nuestra boda.">
+    <meta property="og:image" content="https://modern-stationers.github.io/Boda-de-Karina-y-Camilo/Elementos/Portada.jpeg">
+    <meta property="og:url" content="https://modern-stationers.github.io/Boda-de-Karina-y-Camilo/">
+
+    <!-- Preconexión para recursos externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Preload de imágenes prioritarias -->
+    <link rel="preload" href="Fondo-principal.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="Monograma.svg" as="image" fetchpriority="high">
+    <link rel="preload" href="Fecha.svg" as="image" fetchpriority="high">
+
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fuentes optimizadas -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Libertinus+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Tai+Heritage+Pro:wght@400;700&family=Benne&family=Petit+Formal+Script&family=Cookie&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Rashi+Hebrew:wght@400;500&family=Mea+Culpa&family=Gelasio:ital,wght@0,400..700;1,400..700&family=Tai+Heritage+Pro:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- SOBRE INICIAL -->
+<section id="intro">
+  <div class="video-container">
+    <img src="screen.webp" id="videoPreview" alt="Preview">
+
+    <video id="introVideo" playsinline preload="auto" disablepictureinpicture disableRemotePlayback>
+      <source src="Sobre.mp4" type="video/mp4">
+    </video>
+
+    <div id="clickOverlay">
+      <img src="mano.png" class="mano" id="mano">
+      <p id="clickText">Toca el sello para abrir</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Reproductor de música oculto -->
+  <audio id="bgMusic" preload="auto" loop>
+      <source src="song.mp3" type="audio/mp3">
+      Tu navegador no soporta audio.
+  </audio>
+
+  <!-- Botón flotante de música -->
+  <button id="musicBtn" aria-label="Control de música">
+      <i class="fa-solid fa-play"></i>
+  </button>
+
+<!-- RESTO DE LA WEB -->
+<section id="contenido">
+
+    <!-- Header Section -->
+    <header>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <h1>Nuestra Boda - ANDRES & DANIELA</h1>
+    </header>
+
+    <!-- Overlay for menu -->
+    <div class="overlay" onclick="toggleMenu()"></div>
+
+    <!-- Navigation Menu -->
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="#cover" onclick="toggleMenu()"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="#countdown" onclick="toggleMenu()"><i class="fas fa-clock"></i> Cuenta regresiva</a></li>
+            <li><a href="#details" onclick="toggleMenu()"><i class="fas fa-map-marker-alt"></i> Detalles</a></li>
+            <li><a href="#itinerary" onclick="toggleMenu()"><i class="fas fa-list-alt"></i> Itinerario</a></li>
+            <li><a href="#clothes" onclick="toggleMenu()"><i class="fas fa-tshirt"></i> Código de vestimenta</a></li>
+            <li><a href="#gift" onclick="toggleMenu()"><i class="fas fa-gift"></i> Regalos</a></li>
+            <li><a href="#attendance-section" onclick="toggleMenu()"><i class="fas fa-check-circle"></i> Confirmar asistencia</a></li>
+        </ul>
+    </nav>
+
+    <!-- Portada única -->
+    <section id="cover">
+        <div class="cover-container">
+            <img src="Fondo-principal.webp" alt="Portada única" loading="eager" fetchpriority="high">
+
+            <!-- Texto -->
+            <div class="reveal cover-text">ANDRES & DANIELA</div>
+            <div class="contenedor-texto efecto-zoom cover-text1">
+             Tenemos el honor de invitarte a celebrar<br> 
+               nuestra boda y el dulce secreto que<br>
+               guarda nuestro bebe.</div>
+
+            <img class="efecto-img img-down decorative-img" src="Monograma.svg" alt="Decorativa 1">
+            <img class="efecto-img img-left decorative-img1" src="Fecha.svg" alt="Decorativa 2">
+
+            <!-- Botón Scroll Down -->
+            <a href="#countdown" class="scroll-down">
+              <i class="fa-solid fa-arrow-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section id="countdown">
+      <img class="efecto-img img-down decorative-img2" src="Monograma.svg" alt="Decorativa 1">
+
+      <div class="countdown-container">
+          <img src="Fondo-countdown.webp" alt="Portada única">
+
+          <div class="countdown-bloque">
+            <h2 class="reveal">Cuenta regresiva</h2>
+            <p class="contenedor-texto efecto-zoom">A nuestro día especial</p>
+
+            <div id="timer">
+                <div class="time-unit">
+                    <span class="number" id="days"></span>
+                    <span class="label">días</span>
+                </div>
+                <span class="heart"></span>
+                <div class="time-unit">
+                    <span class="number" id="hours"></span>
+                    <span class="label">horas</span>
+                </div>
+                <span class="heart"></span>
+                <div class="time-unit">
+                    <span class="number" id="minutes"></span>
+                    <span class="label">min.</span>
+                </div>
+                <span class="heart"></span>
+                <div class="time-unit">
+                    <span class="number" id="seconds"></span>
+                    <span class="label">seg.</span>
+                </div>
+            </div>
+
+            <p class="reveal">Guarda la fecha</p>
+            <p class="contenedor-texto efecto-deslizar">Octubre 10 de 2026</p>
+            <a href="https://calendar.app.google/n3CLZ6ukRnzizT2a6" target="_blank" class="btn btn-animado" style="margin-top: 0.8em">Agendar</a>
+          </div>
+      </div>
+    </section>
+
+    <!-- Event Details -->
+    <section id="details">
+      <h1 class="reveal">La celebración</h1>
+        <div class="details-card">
+           <img src="Guatika.webp" alt="" class="efecto-img details-decoration">
+
+           <p class="contenedor-texto efecto-deslizar d1">EL ESCENARIO DE NUESTRA BODA</p>
+           <h2 class="efecto-parrafo slide-right">Basílica Menor Nuestra Señora Del Rosario</h2>
+           <h2 class="efecto-parrafo slide-left">La Union, Nariño</h2>
+           <h4 class="contenedor-texto efecto-fadeSoft d2">Un lugar rodeado de amor</h4>
+           <h4 class="contenedor-texto efecto-fadeSoft d3">Octubre 10 de 2026</h4>
+           <h3 class="contenedor-texto efecto-deslizar">10:30 p.m.</h3>
+           <a href="https://maps.app.goo.gl/n6sDhnu5iYfFghAa9" target="_blank" class="btn btn-animado b2">Ver ubicación</a>
+        </div>
+    </section>
+
+    <!-- El día después -->
+    <section id="dia-despues">
+        <div class="details-card">
+           <img src="Velas.webp" alt="" class="efecto-img dia-despues-decoration">
+
+           <p class="contenedor-texto efecto-deslizar d4">
+            El amor merece celebrarse</p>
+            <h4 class="contenedor-texto efecto-fadeSoft d2">
+              Por eso, los esperamos para<br> 
+               disfrutar juntos.</h4>
+           <h2 class="efecto-parrafo slide-right">Hotel el Bosque</h2>
+           <h2 class="efecto-parrafo slide-left">La Union, Nariño</h2>
+           <h4 class="contenedor-texto efecto-fadeSoft d2"> </h4>
+           <h4 class="contenedor-texto efecto-fadeSoft d3"> </h4>
+           <h3 class="contenedor-texto efecto-deslizar">1:00 p.m.</h3>
+           <a href="https://maps.app.goo.gl/74PPpyLMJ5EJZhSm7" target="_blank" class="btn btn-animado b2">Ver ubicación</a>
+        </div>
+    </section>
+
+    <!-- Itinerary -->
+    <section id="itinerary">
+        <div class="cortina-wrap cortina-wrap-centro">
+          <img src="Cortina1.webp" alt="" class="cortina-decoration1">
+        </div>
+        <div class="cortina-wrap cortina-wrap-derecha">
+          <img src="Cortina.webp" alt="" class="cortina-decoration">
+        </div>
+        <div class="cortina-wrap cortina-wrap-izquierda">
+          <img src="Cortina.webp" alt="" class="cortina-decoration2">
+        </div>
+
+
+        <h1 class="reveal">
+          Día de la<br>
+          Boda</h1>
+        <h2 class="contenedor-texto efecto-deslizar">Itinerario</h2>
+        <div class="timeline">
+          <!-- Línea dorada de progreso -->
+          <div class="progress-line" id="progress"></div>
+        
+          <!-- Item 1 -->
+          <div class="timeline-item">
+            <div class="circle"><i class="fa-solid fa-circle"></i></div>
+            <div class="text">
+              <p class="efecto-parrafo slide-right">Llegada a Iglesia</p>
+              <h3 class="efecto-parrafo slide-right">10:30 A.M.</h3>
+            </div>
+          </div>
+        
+          <!-- Item 2 -->
+          <div class="timeline-item">
+            <div class="circle"><i class="fa-solid fa-circle"></i></div>
+            <div class="text">
+              <p class="efecto-parrafo slide-right">Ceremonia</p>
+              <h3 class="efecto-parrafo slide-right">11:00 A.M.</h3>
+            </div>
+          </div>
+        
+          <!-- Item 3 -->
+          <div class="timeline-item">
+            <div class="circle"><i class="fa-solid fa-circle"></i></div>
+            <div class="text">
+              <p class="efecto-parrafo slide-right">Marcha a Hotel</p>
+              <h3 class="efecto-parrafo slide-right">1:00 P.M.</h3>
+            </div>
+          </div>
+        
+          <!-- Item 4 -->
+          <div class="timeline-item">
+            <div class="circle"><i class="fa-solid fa-circle"></i></div>
+            <div class="text">
+              <p class="efecto-parrafo slide-right">Almuerzo</p>
+              <h3 class="efecto-parrafo slide-right">1:30 P.M.</h3>
+            </div>
+          </div>
+        
+          <!-- Item 5 -->
+          <div class="timeline-item">
+            <div class="circle"><i class="fa-solid fa-circle"></i></div>
+            <div class="text">
+              <p class="efecto-parrafo slide-right">Revelacion de Genero</p>
+              <h3 class="efecto-parrafo slide-right">2:30 P.M.</h3>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- Código de vestimenta -->
+    <section id="clothes">
+      <h1 class="reveal">Código de vestimenta</h1>
+      <div class="details-card">
+          <img src="Arboles.webp" alt="" class="efecto-img clothes-decoration">
+          <img src="Flores-velo.png" alt="" class="efecto-img clothes-decoration1">
+
+          <h2 class="efecto-parrafo slide-left d5">Caballeros</h2>
+          <p class="contenedor-texto efecto-deslizar d3"> </p>
+          <h3 class="contenedor-texto efecto-fadeSoft">
+            Evitar el color blanco y negro</h3>
+
+
+
+          <h2 class="efecto-parrafo slide-left d6">Damas</h2>
+          <p class="contenedor-texto efecto-deslizar d3">-</p>
+          <h3 class="contenedor-texto efecto-fadeSoft d7">
+            Evitar los colores<br>
+            blanco y negro</h3>
+      </div>
+    </section>
+
+    <!-- Regalo -->
+    <section id="gift">
+      <div class="details-card">
+        <img src="Flores.png" alt="" class="efecto-img gift-decoration">
+        <img src="Flores.png" alt="" class="efecto-img gift-decoration1">
+
+        <h1 class="reveal">Sugerencia</h1>
+        <p class="contenedor-texto efecto-fadeSoft">
+          Agradecemos su puntual asistencia.</p>  
+        <h2 class="efecto-parrafo zoom-in">
+          Esperamos contar con tu presencia.</h2> 
+      </div>
+    </section>
+
+<!-- Sección de Confirmación de Asistencia -->
+<section id="attendance-section">
+    <h1 class="reveal">Rsvp</h1>
+    <p id="guestInfo" class="efecto-parrafo zoom-in"></p>
+    <button class="btn btn-animado" onclick="openAttendanceModal()">MUCHAS GRACIAS</button>
+
+    <div id="attendanceModal" class="attendance-modal">
+        <div class="attendance-modal-content">
+            <span class="attendance-close" onclick="closeAttendanceModal()">&times;</span>
+            <h3 class="reveal">Contamos contigo en<br>nuestro día especial</h3>
+            <p class="efecto-parrafo zoom-in">Te agradecemos confirmar tu asistencia antes del domingo 30 de agosto de 2026. De lo contrario, entenderemos que no podrás acompañarnos en nuestra celebración.</p>
+            <p class="efecto-parrafo zoom-in">Nota: Este formulario debe diligenciarse por cada invitado.
+                Si tu invitación indica 4 pases, las 4 personas deberán completar el formulario de manera individual.</p><br>
+            
+                <form id="attendanceForm">
+                  <label class="form-label">Nombre completo</label>
+                  <input type="text" id="mainGuest" required><br><br>
+                
+                  <label class="form-label">Número de contacto (teléfono o WhatsApp)</label>
+                  <input type="text" id="contactNumber" required><br><br>
+                
+                  <label class="form-label">¿Nos acompañarás en la boda?</label>
+                  <select id="attendanceConfirmation" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Sí, allí estaré">Sí, allí estaré</option>
+                    <option value="No puedo, lo siento">No puedo, lo siento</option>
+                  </select><br><br>
+
+                  <label class="form-label">¿Nos acompañarás en el asado?</label>
+                  <select id="asadoConfirmation" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Sí, allí estaré">Sí, allí estaré</option>
+                    <option value="No puedo, lo siento">No puedo, lo siento</option>
+                  </select><br><br>
+                
+                  <label class="form-label">¿A qué grupo perteneces?</label>
+                  <select id="guestGroup" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Familia">Familia</option>
+                    <option value="Amigos">Amigos</option>
+                    <option value="Padrinos">Padrinos</option>
+                    <option value="Corte de honor">Corte de honor</option>
+                    <option value="Otro">Otro</option>
+                  </select><br><br>
+                
+                  <label class="form-label">Vínculo cercano a los novios</label>
+                  <select id="relationship" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Familia">Familia</option>
+                    <option value="Amig@">Amigo</option>
+                  </select><br><br>
+                
+                  <label class="form-label">Edad</label>
+                  <select id="ageGroup" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="-18 años">Menor de 18 años</option>
+                    <option value="18 a 30 años">18 a 30 años</option>
+                    <option value="30 años o más">30 años o más</option>
+                  </select><br><br>
+                
+                  <label class="form-label">¿Tienes alguna restricción dietética o alimenticia?</label>
+                  <select id="dietaryRestrictions">
+                    <option value="No">No</option>
+                    <option value="Sí">Sí</option>
+                    <option value="Vegetariano">Vegetariano</option>
+                    <option value="Vegano">Vegano</option>
+                    <option value="Otro">Otro</option>
+                  </select><br><br>
+                
+                  <label class="form-label">¿Necesitas conductor elegido para el evento?</label>
+                  <select id="designatedDriver" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Sí">Sí</option>
+                    <option value="No">No</option>
+                  </select><br><br>
+                
+                  <label class="form-label">¿Deseas solicitar hospedaje para el día del evento?</label>
+                  <select id="lodging" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Sí">Sí</option>
+                    <option value="No">No</option>
+                  </select><br><br>
+                
+                  <label class="form-label">¿Tienes alguna necesidad especial (movilidad reducida, asiento accesible, etc.)?</label>
+                  <textarea id="specialNeeds" placeholder="Especifica si aplica"></textarea><br><br>
+                
+                  <label class="form-label">¿Eres invitado extranjero? Si vienes de algún país o ciudad retirada, por favor confírmanos</label>
+                  <textarea id="foreignGuest" placeholder="Especifica país o ciudad si aplica"></textarea><br><br>
+
+                  <label class="form-label">¿Tienes alguna canción especial para los novios? ¿Qué te gustaría escuchar en la fiesta?</label>
+                  <textarea id="playlist" placeholder="Canción para la Playlist"></textarea><br><br>
+                
+                  <label class="form-label">Felicitaciones para los novios</label>
+                  <textarea id="wishes" placeholder="Escribe tu mensaje aquí"></textarea><br><br>
+                
+                  <p id="loadingMessage1" style="display: none;">Cargando respuestas...</p>
+                  <button type="submit" class="btn b4">Enviar</button>
+              </form>                        
+        </div>
+    </div>
+</section>
+
+<section id="ultimo">
+  <img src="Flores-finales.webp" alt="" class="efecto-img ultimo-decoration">
+  <img src="Flores-finales.webp" alt="" class="efecto-img ultimo-decoration1">
+  <img class="efecto-img img-down decorative-img3" src="Monograma.svg" alt="Decorativa 1">
+  <h1 class="reveal">ANDRES & DANIELA</h1>
+  <p class="contenedor-texto efecto-deslizar">Octubre 10 de 2026</p>
+</section>
+
+</section>
+
+    <!-- JavaScript optimizado -->
+    <script src="script.js" defer></script>
+    
+</body>
+</html>
